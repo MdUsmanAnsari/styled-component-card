@@ -1,4 +1,14 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
+
+const CardStyle = styled.div`
+  width: 18rem;
+  padding: 2rem;
+  background-color: #3498db;
+  border-radius: 2px;
+  transition: all 0.2s;
+  background-color: ${(props) =>
+    props.bg ? "green" : "#3498db"};
+`;
 
 const Heading = styled.h1`
   font-size: 2em;
@@ -10,17 +20,12 @@ const P = styled.p`
   color: #fff;
 `;
 
-const Card = (props) => {
-  const CardStyle = props.style;
-
+const Card = ({ischange , changeBgHandler , title}) => {
   return (
-    <CardStyle bg={props.ischange} onClick={props.changeBgHandler}>
-      <Heading>{props.title}</Heading>
+    <CardStyle bg={ischange} onClick={changeBgHandler}>
+      <Heading>{title}</Heading>
       <P>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat nulla
-        officia sequi delectus, quibusdam minima quaerat culpa excepturi
-        voluptas adipisci voluptatum temporibus et debitis suscipit aliquam quae
-        consectetur ex labore.
+          Click for see changes
       </P>
     </CardStyle>
   );
